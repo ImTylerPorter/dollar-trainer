@@ -1,0 +1,30 @@
+footer
+	background-color: $gross
+	padding: 5px 2rem
+	+clearfix
+	nav
+		float: right
+		a
+			color: $white
+			text-transform: uppercase
+			font-weight: bold
+			margin-left: 15px
+			position: relative
+			line-height: 1.5
+			vertical-align: middle
+			&:first-of-type
+				margin: 0
+			&:first-of-type:before
+				content: none
+			&:before
+				content: ''
+				background: url(../../assets/img/line.svg)
+				display: block
+				width: 1px
+				height: 18px
+				position: absolute
+				bottom: 0px
+				left: -10px
+				color: $dark
+				vertical-align: top 
+

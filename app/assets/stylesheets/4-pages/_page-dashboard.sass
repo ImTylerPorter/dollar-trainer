@@ -1,0 +1,74 @@
+.dashboard
+	padding-top: 100px
+	h1
+		color: $highlight
+		text-align: center
+		font-size: 3em
+		@media (max-width: 660px)
+			font-size: 2em
+			margin-top: 80px
+
+	ul
+		list-style: none
+		margin: 0
+		padding: 0
+
+		.message-item
+			+clearfix
+
+			h5
+				text-align: center
+				text-transform: uppercase
+				color: $light-grey
+				margin-bottom: 0
+			.profile-image
+				width: 65px
+				border-radius: 50%
+				float: left
+				vertical-align: middle
+				@media (max-width: 500px)
+					float: none
+					margin: 10px auto
+					display: block
+			.message
+				margin-left: 20px
+				width: 90%
+				font-weight: bold
+				float: right
+				@media (max-width: 955px)
+					width: 80%
+				@media (max-width: 500px)
+					width: 100%
+					float: none
+					text-align: center
+					margin: 0
+		.trainer
+			.profile-image
+				float: right
+				@media (max-width: 500px)
+					float: none
+			.message
+				text-align: right
+				float: left
+				margin-right: 20px
+				margin-left: 0px
+				font-weight: normal
+				@media (max-width: 500px)
+					width: 100%
+					float: none
+					text-align: center
+					margin: 0
+
+			.not-answered
+				font-family: sans-serif
+				font-style: italic
+				margin-top: 20px
+
+	.button
+		display: block
+		margin: 0 auto
+		font-size: 2em
+		@media (max-width: 560px)
+			font-size: 1.4em
+			padding: 0
+

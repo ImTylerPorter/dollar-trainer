@@ -1,0 +1,112 @@
+#signup-page
+	background-color: transparent
+.signup-bg
+	background-image: image-url("signup-bg.jpg")
+.login-bg
+	background-image: image-url("login-bg.jpg")
+.signup-body
+	min-height: 100vh
+	background-size: cover
+	background-position: 50% 50%
+	overflow: hidden
+
+	.signup-card
+		width: 760px
+		max-width: 90%
+		background: transparentize($dark, .2)
+		position: relative
+		vertical-align: middle
+		display: block
+		z-index: 1
+		margin: 120px auto 50px
+		padding: 1.5em 2.5%
+
+		h2, h3
+			color: $off-white
+			text-align: center
+		h2
+			font-family: 1.8em
+
+		h3
+			font-size: 1.6em
+			text-transform: uppercase
+
+
+		form
+			.half-input
+				width: 48.2%
+				display: inline-block
+				margin-right: 20px
+				&:nth-child(4) ,&:nth-child(3n+4)
+					margin-right: 0
+				@media (max-width: 800px)
+					width: 100%
+					display: block
+			.third-input
+				width: 30.9%
+				display: inline-block
+				margin-right: 20px
+				&:last-of-type
+					margin: 0
+				@media (max-width: 800px)
+					width: 100%
+					display: block
+
+			pre
+				text-align: center
+				color: $off-white
+
+			input, input[type="email"]
+				background: transparent
+				border-top: 0
+				border-right: 0
+				border-left: 0
+				border-bottom: 1px solid $off-white
+				color: $off-white
+				@include placeholder
+					color: $off-white
+
+			input[type="submit"]
+				background: $highlight
+				border: 2px solid $highlight
+				display: block
+				transition: all 300ms
+				margin: 0 auto
+				&:hover
+					background: $dark
+					border-color: $dark
+			textarea
+				background: transparent
+				min-height: 250px
+
+			.facebook-button
+				display: block
+				width: 100%
+				background: #4c66a4
+				color: $off-white
+				padding: 1em
+				margin-bottom: 1em
+				text-align: center
+				font-size: 1.3em
+				cursor: pointer
+
+				&:hover
+					background: darken(#4c66a4, 10%)
+
+				p
+					display: inline
+					font-weight: bold
+
+			.forgot-password
+				display: block
+				text-align: center
+				margin-top: .4em
+				color: $text
+				cursor: pointer
+				&:hover
+					color: $black
+
+
+
+.inline-block
+	display: inline-block

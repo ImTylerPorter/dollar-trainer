@@ -1,0 +1,92 @@
+header
+  background: $dark
+  padding: 20px 2rem
+  position: fixed
+  width: 100%
+  z-index: 1
+  +clearfix 
+  #logo
+    float: left
+    @media (max-width: 590px)
+      float: none
+      display: block
+    img
+      display: block
+      width: 180px
+      height: auto
+      margin-top: 8px
+      @media (max-width: 590px)
+        margin: 0px auto 20px
+  nav
+    +clearfix
+    float: right
+    @media (max-width: 590px)
+      float: none
+      text-align: center
+    a
+      margin-left: 10px
+      &:first-of-type
+        margin: 0
+      .profile-image
+        width: 38px
+        border-radius: 50%
+        max-width: 100%
+        float: left
+        margin-right: 5px
+
+// Hero Section
+.hero
+  background-image: image-url("hero.jpg")
+  background-size: cover
+  overflow: hidden
+  min-height: 340px
+  text-align: center
+  background-color: $black
+  position: relative
+  h1
+    color: $off-white
+    font-size: 3.5em
+    margin-top: 140px
+    letter-spacing: 1px
+    padding: 0 1.5%
+    @media (max-width: 1040px)
+      font-size: 3em
+    @media (max-width: 860px)
+      font-size: 1.8em
+      margin-top: 160px
+  .button-highlight
+    height: 50px
+    line-height: 50px
+    &:hover
+      opacity: 1
+      background-color: $dark
+      border-color: $dark
+
+// Home page content section
+
+.content
+  padding: 80px 0
+  h2
+    text-transform: uppercase
+    color: $dark
+    text-align: center
+    font-size: 2.4em
+    margin-top: 0
+
+  .featured-trainer
+    text-align: center
+    img
+      width: 140px
+      border-radius: 50%
+    h3, .title
+      line-height: .9
+      margin: 0
+      font-family: "proxima-nova", sans-serif
+
+    .title
+      font-size: .85em
+      text-transform: uppercase
+      color: $light-grey
+      margin-bottom: 1em
+    h4
+      margin-bottom: .5em
