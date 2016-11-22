@@ -20,6 +20,7 @@ header
   nav
     +clearfix
     float: right
+    position: relative
     @media (max-width: 590px)
       float: none
       text-align: center
@@ -27,12 +28,68 @@ header
       margin-left: 10px
       &:first-of-type
         margin: 0
-      .profile-image
-        width: 38px
-        border-radius: 50%
-        max-width: 100%
-        float: left
-        margin-right: 5px
+    .profile-image
+      width: 38px
+      border-radius: 50%
+      max-width: 100%
+      float: left
+      margin-right: 5px
+      
+    .user-dropdown
+      background: $off-white
+      -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.35)
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.35)
+      position: absolute
+      top: 100%
+      padding: 0
+      margin: 20px 0
+      min-width: 200px
+      color: #222
+      right: 0
+      opacity: 0
+      visibility: hidden
+      -webkit-transition: -webkit-transform 0.15s, opacity 0.15s
+      transition: transform 0.15s, opacity 0.15s
+      -webkit-transform: scale(0.95)
+      -ms-transform: scale(0.95)
+      transform: scale(0.95)
+      -webkit-transform-origin: top right
+      -ms-transform-origin: top right
+      transform-origin: top right
+      list-style: none
+
+      &.open
+        visibility: visible
+        opacity: 1
+        -webkit-transform: scale(1)
+        -ms-transform: scale(1)
+        transform: scale(1)
+
+      li
+        position: relative
+        text-align: center
+        margin: 10px 0
+        border-bottom: 2px solid transparent
+        color: $highlight
+        &:hover
+          background-color: $highlight
+          color: $off-white
+        &:first-child
+          margin-top: 0
+        &:last-child
+          margin-bottom: 0
+
+        a 
+          color: $highlight
+          padding: 1em 0
+          display: block
+          transition: none
+          &:hover
+            color: $off-white
+            font-weight: bold
+
+      
+
 
 // Hero Section
 .hero

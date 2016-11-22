@@ -7,10 +7,29 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+ <header>
+  <%= link_to image_tag("logo.svg"), root_url, id: "logo" %>
+  <nav>
+    <% unless user_signed_in? %>
+      <%= link_to "Login", new_user_session_path, class: "button"%>
+      <%= link_to "Ask Now", new_user_registration_path, class: "button button-highlight"%>
+    <% else %>
+      <%= image_tag("adelle.jpg", class: "profile-image")%>
+      <ul class="user-dropdown">
+        <li><%= link_to "Account Settings", edit_user_registration_path(@path) %></li>
+        <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+      </ul>
+    <% end %>
+
+  </nav>
+</header> 
 
   <body>
-  	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% elsif alert%>
+      <p class="alert"><%= alert %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>

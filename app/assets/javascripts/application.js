@@ -14,3 +14,34 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+
+
+$( document ).ready(function() {
+  smoothlyScroll(800);
+
+ // Opens dropdown menu
+ $(".profile-image").click(function(){     
+    $('.user-dropdown').toggleClass('open');
+  });
+
+});
+
+
+// Smooth scroll for the fun people
+
+function smoothlyScroll (duration) {
+  $('a[href^="#"]').on('click', function(event) {
+
+      var target = $( $(this).attr('href') );
+
+      if( target.length ) {
+          event.preventDefault();
+          $('html, body').animate({
+              scrollTop: target.offset().top
+          }, duration);
+      }
+  });
+}
+
