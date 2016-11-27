@@ -5,6 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
 
+  def avatar_url
+    hash = Digest::MD5.hexdigest(email)
+    "http://www.gravatar.com/avatar/#{hash}"
+  end
+
 
   # Facebook OmniAuth setup
 def self.from_omniauth(auth)
@@ -14,6 +19,7 @@ def self.from_omniauth(auth)
       user.email = auth.info.email
       user.first_name = auth.info.first_name
       user.last_name = auth.info.last_name
+      user.image = auth.info.image
       user.password = Devise.friendly_token[0,20]
       user.save
     end

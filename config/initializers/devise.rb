@@ -58,6 +58,6 @@ Devise.setup do |config|
   config.sign_out_via = :delete
 
 
-  config.omniauth :facebook, ENV["FACEBOOK_FITASSIST_APP_ID"], ENV["FACEBOOK_FITASSIST_SECRET"], :image_size => 'normal', callback_url: ENV["FACEBOOK_CALLBACK_URL"],  scope: 'email,public_profile', info_fields: 'email, first_name, last_name'
+  config.omniauth :facebook, ENV["FACEBOOK_FITASSIST_APP_ID"], ENV["FACEBOOK_FITASSIST_SECRET"], callback_url: ENV["FACEBOOK_CALLBACK_URL"],  scope: 'email,public_profile', info_fields: 'email, first_name, last_name'
 
 end
