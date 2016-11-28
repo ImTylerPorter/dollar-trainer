@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   validates :user_id, presence: true  
   has_many :conversations
+  has_many :comments, dependent: :destroy
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
