@@ -2,5 +2,9 @@
 	.wrapper
 		%h1= @conversation.question
 
-		= link_to "Edit", edit_conversation_path(@conversation)
-		= link_to "Delete", conversation_path(@conversation), method: :delete, data: { confirm: "Are you sure you want to do this? "}
+		- if @conversation.user.id == current_user.id
+			= link_to "Edit", edit_conversation_path(@conversation)
+			|
+			= link_to "Delete", conversation_path(@conversation), method: :delete, data: { confirm: "Are you sure you want to do this? "}
+		- else
+			= link_to "Cancel", conversations_path

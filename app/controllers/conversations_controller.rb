@@ -20,6 +20,8 @@ class ConversationsController < ApplicationController
 		if @conversation.save
 			redirect_to @conversation
 		else
+			flash[:alert] = "Your new question couldn't be asked!  Please check the form."
+
 			render "new"
 		end
 	end
