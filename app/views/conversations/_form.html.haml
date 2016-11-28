@@ -1,3 +1,3 @@
 = simple_form_for @conversation do |f|
-	= f.input :question, :placeholder => "Hi"
-	= f.submit
+	= f.text_area :question, label: false, :placeholder => "Ask your question here..."
+	= f.button :button, :class => "button button-highlight button-huge"
