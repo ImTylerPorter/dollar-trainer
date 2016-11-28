@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>DollarTrainer</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-    <header <%if content_for :header_id %>id="<%= content_for :header_id %>"<% end %>>
+<header <%if content_for :header_id %>id="<%= content_for :header_id %>"<% end %>>
   
   <%= link_to image_tag("logo.svg"), root_url, id: "logo" %>
   <nav>
@@ -27,14 +18,4 @@
     <% end %>
 
   </nav>
-</header> 
-
-  <body>
-    <% if notice %>
-      <p class="notice"><%= notice %></p>
-    <% elsif alert%>
-      <p class="alert"><%= alert %></p>
-    <% end %>
-    <%= yield %>
-  </body>
-</html>
+</header>
