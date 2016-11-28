@@ -1,20 +1,21 @@
 class ConversationsController < ApplicationController
-
+	before_action :authenticate_user!
 	before_action :find_conversation, only: [:show, :edit, :update, :destroy]
+	before_action :owned_conversation, only: [:edit, :update, :destroy]
 
 	def index
-		@conversation = Conversation.all.order("created_at DESC")
+		@conversation = current_user.conversations.order("created_at DESC")
 	end
 
 	def show
 	end
 
 	def new
-		@conversation = Conversation.new
+		@conversation = current_user.conversations.build
 	end
 
 	def create
-		@conversation = Conversation.new(conversation_params)
+		@conversation = current_user.conversations.build(conversation_params)
 
 		if @conversation.save
 			redirect_to @conversation
@@ -47,6 +48,13 @@ class ConversationsController < ApplicationController
 
 	def find_conversation
 		@conversation = Conversation.find(params[:id])
+	end
+
+	def owned_conversation
+		unless current_user == @conversation.user
+			flash[:alert] = "That qustion doesn't belong to you!"
+			redirect_to root_path
+		end
 	end
 
 end
