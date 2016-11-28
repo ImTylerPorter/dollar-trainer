@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
 
+
   def avatar_url
     hash = Digest::MD5.hexdigest(email)
     "http://www.gravatar.com/avatar/#{hash}"

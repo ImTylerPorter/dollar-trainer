@@ -1,3 +1,19 @@
 %section.content.dashboard
 	.wrapper
-		%h1= Index
+		%h1
+			= current_user.first_name
+			's Questions
+
+		%ul
+			- @conversation.each do |conversation|
+				%li.message-item
+					%h5 
+						You asked Mike
+					%img
+						= image_tag current_user.image, class: "profile-image"
+					%p.message= conversation.question
+				%hr
+
+		= link_to "Ask a new question", new_conversation_path, class: "button button-highlight button-big"
+
+

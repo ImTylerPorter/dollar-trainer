@@ -3,6 +3,7 @@ class ConversationsController < ApplicationController
 	before_action :find_conversation, only: [:show, :edit, :update, :destroy]
 
 	def index
+		@conversation = Conversation.all.order("created_at DESC")
 	end
 
 	def show
