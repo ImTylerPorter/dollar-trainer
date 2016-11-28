@@ -10,7 +10,10 @@
 					%h5 
 						You asked Mike
 					%img
-						= image_tag current_user.image, class: "profile-image"
+						- if current_user.image.present?
+							= image_tag current_user.image, class: "profile-image"
+						- else
+							= image_tag current_user.avatar_url, class: "profile-image"
 					%p.message= conversation.question
 				%hr
 
