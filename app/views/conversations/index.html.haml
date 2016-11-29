@@ -6,16 +6,8 @@
 
 		%ul
 			- @conversation.each do |conversation|
-				%li.message-item
-					%h5 
-						You asked Mike
-					%img
-						- if current_user.image.present?
-							= image_tag current_user.image, class: "profile-image"
-						- else
-							= image_tag current_user.avatar_url, class: "profile-image"
-					%p.message 
-					= link_to conversation.question, conversation_path(conversation)
+				= render 'conversation', conversation: conversation
+
 				%hr
 
 		= link_to "Ask a new question", new_conversation_path, class: "button button-highlight button-big"

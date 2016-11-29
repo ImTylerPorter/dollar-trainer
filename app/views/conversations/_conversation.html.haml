@@ -1,0 +1,21 @@
+%li.message-item
+	%h5 
+		You asked Mike
+	%img
+		- if conversation.user.image.present?
+			= image_tag conversation.user.image, class: "profile-image"
+		- else
+			= image_tag conversation.user.avatar_url, class: "profile-image"
+	%p.message 
+	= link_to conversation.question, conversation_path(conversation)
+
+.comments{id: "comments_#{conversation.id}"}
+- if conversation.answers
+	= render conversation.answers, conversation: conversation		
+
+- if current_user.trainer == true
+	= form_for([conversation, conversation.answers.new], remote: true) do |f|
+		= f.text_field :content, placeholder: "Answer the question here..." , class: "comment_content", id: "comment_content_#{conversation.id}"
+
+
+

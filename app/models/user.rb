@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   validates :user_id, presence: true  
   has_many :conversations
-  has_many :comments, dependent: :destroy
+  has_many :answers, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -25,7 +25,7 @@ def self.from_omniauth(auth)
       user.email = auth.info.email
       user.first_name = auth.info.first_name
       user.last_name = auth.info.last_name
-      user.image = auth.info.image
+      user.image = URI.parse(auth.info.image) if auth.info.image?
       user.password = Devise.friendly_token[0,20]
       user.save
     end

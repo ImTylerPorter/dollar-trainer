@@ -1,0 +1,12 @@
+%li.message-item.trainer
+	%h5 Mike answered
+	%img
+		- if answer.user.image.present?
+			= image_tag conversation.user.image, class: "profile-image"
+		- else
+			= image_tag conversation.user.avatar_url, class: "profile-image"
+	%p.message
+		= answer.content
+		- if answer.user == current_user
+			= link_to conversation_answer_path(conversation, answer), method: :delete, data: { confirm: "Are you sure?" } do
+				"Delete"

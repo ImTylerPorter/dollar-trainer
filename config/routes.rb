@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 		resources :answers
 	end
 
+	authenticated :user do 
+  	root 'conversations#index', as: "authenticated_root"
+  end
+
 	root 'welcome#index'
 
 end

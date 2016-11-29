@@ -2,9 +2,12 @@ class ConversationsController < ApplicationController
 	before_action :authenticate_user!
 	before_action :find_conversation, only: [:show, :edit, :update, :destroy]
 	before_action :owned_conversation, only: [:edit, :update, :destroy]
-
 	def index
-		@conversation = current_user.conversations.order("created_at DESC")
+		if current_user.trainer == true
+			@conversation = Conversation.all.order("created_at DESC")
+		else
+			@conversation = current_user.conversations.order("created_at DESC")
+		end
 	end
 
 	def show
@@ -16,6 +19,7 @@ class ConversationsController < ApplicationController
 
 	def create
 		@conversation = current_user.conversations.build(conversation_params)
+  	@conversation.user_id = current_user.id
 
 		if @conversation.save
 			redirect_to @conversation
@@ -51,6 +55,7 @@ class ConversationsController < ApplicationController
 	def find_conversation
 		@conversation = Conversation.find(params[:id])
 	end
+
 
 	def owned_conversation
 		unless current_user == @conversation.user
