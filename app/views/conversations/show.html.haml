@@ -2,7 +2,9 @@
 	.wrapper
 		%h1= @conversation.question
 
-		= render 'conversation', conversation: @conversation
+		%ul
+
+			= render 'conversation', conversation: @conversation
 
 		- if @conversation.user.id == current_user.id
 			= link_to "Edit", edit_conversation_path(@conversation)

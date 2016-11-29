@@ -1,5 +1,7 @@
 %li.message-item.trainer
-	%h5 Mike answered
+	%h5 
+		= answer.user.first_name 
+		answered
 	%img
 		- if answer.user.image.present?
 			= image_tag conversation.user.image, class: "profile-image"

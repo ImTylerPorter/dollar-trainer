@@ -6,12 +6,14 @@
 			= image_tag conversation.user.image, class: "profile-image"
 		- else
 			= image_tag conversation.user.avatar_url, class: "profile-image"
-	%p.message 
-	= link_to conversation.question, conversation_path(conversation)
+	%p.message= conversation.question
 
 .comments{id: "comments_#{conversation.id}"}
-- if conversation.answers
-	= render conversation.answers, conversation: conversation		
+- if !conversation.answers.present?
+	= render "not_answered"
+- else
+	= render conversation.answers, conversation: conversation
+
 
 - if current_user.trainer == true
 	= form_for([conversation, conversation.answers.new], remote: true) do |f|
