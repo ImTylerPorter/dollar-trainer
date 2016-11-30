@@ -1,5 +1,8 @@
 %li.message-item.trainer
 	%h5 Awaiting answer from Mike
 	- if @mike.present?
-		= image_tag @mike.avatar_url, class: "profile-image"
+		- if @mike.image.present?
+			= image_tag @mike.image, class: "profile-image"
+		- else
+			= image_tag @mike.avatar_url, class: "profile-image"
 	%p.message You will recieve an answer within 1-3 Business days

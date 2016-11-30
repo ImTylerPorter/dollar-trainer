@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   private
 
   def find_mike
-  	@mike = User.find_by_id(5)
+  	@mike = User.find_by_id(3)
   end
 
 end
