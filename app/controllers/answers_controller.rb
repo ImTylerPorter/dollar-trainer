@@ -1,6 +1,7 @@
 class AnswersController < ApplicationController
-
+respond_to :html, :json
 before_action :set_conversation
+
 def create  
   @answer = @conversation.answers.build(answer_params)
   @answer.user_id = current_user.id
@@ -17,7 +18,19 @@ def create
   end
 end
 
-def show
+
+def update
+  @answer = @conversation.answers.find(params[:id])
+
+  respond_to do |format|
+    if @answer.update_attributes(answer_params)
+      format.html { redirect_to(@answer, :notice => 'Answer was successfully updated.') }
+      format.json { respond_with_bip(@answer) }
+    else
+      format.html { render :action => "edit" }
+      format.json { respond_with_bip(@answer) }
+    end
+  end
 end
 
 def destroy  

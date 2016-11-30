@@ -8,7 +8,12 @@
 		- else
 			= image_tag conversation.user.avatar_url, class: "profile-image"
 	%p.message
-		= answer.content
-		- if answer.user == current_user
-			= link_to conversation_answer_path(conversation, answer), method: :delete, data: { confirm: "Are you sure?" } do
-				"Delete"
+		- if current_user.trainer == true
+			= best_in_place [conversation, answer], :content, :as => :textarea
+		- else
+			= answer.content
+	- if answer.user == current_user
+		.answer-links
+			= link_to conversation_answer_path(conversation, answer), method: :delete, data: { confirm: "Are you sure?" }, class: "button button-highlight" do
+				Delete
+			

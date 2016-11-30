@@ -10,6 +10,7 @@
 
 				%hr
 
-		= link_to "Ask a new question", new_conversation_path, class: "button button-highlight button-big"
+		- if current_user.trainer == false
+			= link_to "Ask a new question", new_conversation_path, class: "button button-highlight button-big"
 
 

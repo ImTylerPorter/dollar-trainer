@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_action :find_mike
+  respond_to :html, :json
+
 
   protected
 

@@ -12,7 +12,9 @@
 		list-style: none
 		margin: 0
 		padding: 0
-
+		
+		.new_answer
+			margin-top: 2em
 		.message-item
 			+clearfix
 
@@ -42,6 +44,21 @@
 					float: none
 					text-align: center
 					margin: 0
+				.best_in_place
+					&:hover
+						cursor: pointer
+						color: $dark
+			.answer-links
+				font-size: .75em
+				padding: .5em
+				clear: both
+				margin: 0 auto
+
+				a
+					width: 30%
+					
+
+
 		.trainer
 			.profile-image
 				float: right

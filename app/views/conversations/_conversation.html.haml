@@ -9,13 +9,13 @@
 	%p.message= conversation.question
 
 .comments{id: "comments_#{conversation.id}"}
-- if !conversation.answers.present?
+- if !conversation.answers.present? && current_user.trainer == false
 	= render "not_answered"
 - else
 	= render conversation.answers, conversation: conversation
 
 
-- if current_user.trainer == true
+- if current_user.trainer == true && !conversation.answers.present?
 	= form_for([conversation, conversation.answers.new], remote: true) do |f|
 		= f.text_field :content, placeholder: "Answer the question here..." , class: "comment_content", id: "comment_content_#{conversation.id}"
 

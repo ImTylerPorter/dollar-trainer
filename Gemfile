@@ -16,6 +16,7 @@ gem 'omniauth-facebook'
 gem "figaro"
 gem 'haml', '~> 4.0', '>= 4.0.7'
 gem 'simple_form', '~> 3.3', '>= 3.3.1'
+gem 'best_in_place', github: 'bernat/best_in_place' 
 
 
 
