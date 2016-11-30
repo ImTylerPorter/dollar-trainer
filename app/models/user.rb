@@ -1,5 +1,4 @@
-class User < ApplicationRecord
-  validates :user_id, presence: true  
+class User < ApplicationRecord 
   has_many :conversations
   has_many :answers, dependent: :destroy
 
