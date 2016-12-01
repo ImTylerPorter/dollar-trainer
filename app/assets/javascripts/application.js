@@ -20,7 +20,9 @@
 
 
 
-$( document ).ready(function() {
+
+$( document ).on('turbolinks:load', function() {
+
   smoothlyScroll(800);
 
  // Opens dropdown menu
