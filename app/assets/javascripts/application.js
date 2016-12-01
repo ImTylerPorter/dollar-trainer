@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require best_in_place
 //= require best_in_place.purr
+//= require modal
 //= require turbolinks
 //= require_tree .
 

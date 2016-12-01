@@ -15,6 +15,12 @@ class ConversationsController < ApplicationController
 
 	def new
 		@conversation = current_user.conversations.build
+
+		respond_to do |format|
+        format.html # new.html.erb
+        format.js # new.js.erb
+        format.json { render json: @conversation }
+    end
 	end
 
 	def create
@@ -22,7 +28,7 @@ class ConversationsController < ApplicationController
   	@conversation.user_id = current_user.id
 
 		if @conversation.save
-			redirect_to @conversation
+			redirect_to root_path
 		else
 			flash[:alert] = "Your new question couldn't be asked!  Please check the form."
 

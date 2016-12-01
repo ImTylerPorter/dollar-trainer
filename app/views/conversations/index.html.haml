@@ -11,6 +11,12 @@
 				%hr
 
 		- if current_user.trainer == false
-			= link_to "Ask a new question", new_conversation_path, class: "button button-highlight button-big"
+
+		
+
+			= link_to "Ask a new question", new_conversation_path, class: "button button-highlight button-big", remote: true
+
+			= render "layouts/modal"
+
 
 

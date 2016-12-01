@@ -1,0 +1,6 @@
+#ask{ :style => "display:none;"}
+	.modal-title
+		= image_tag @mike.avatar_url, class: "trainer-image"
+		%h3
+	.modal-content
+		= render "conversations/form"
